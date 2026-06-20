@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drawing App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="toolbar">
+    <div class="tb-group">
+      <button class="tb-btn active" id="btn-draw" onclick="setTool('draw')">✏️ Draw</button>
+      <button class="tb-btn" id="btn-eraser" onclick="setTool('eraser')">🧹 Erase</button>
+      <button class="tb-btn" id="btn-select" onclick="setTool('select')">🖱 Select</button>
+    </div>
+    <div class="tb-group">
+      <button class="tb-btn" id="btn-rectangle" onclick="setTool('rectangle')">▭ Rect</button>
+      <button class="tb-btn" id="btn-circle" onclick="setTool('circle')">○ Circle</button>
+      <button class="tb-btn" id="btn-line" onclick="setTool('line')">╱ Line</button>
+    </div>
+    <div class="tb-group">
+      <button class="tb-btn" id="btn-text" onclick="setTool('text')">Text</button>
+      <select id="fontFamily" style="max-width:130px">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Comic Sans MS">Comic Sans</option>
+        <option value="Impact">Impact</option>
+        <option value="Trebuchet MS">Trebuchet</option>
+        <option value="Palatino Linotype">Palatino</option>
+        <option value="Lucida Console">Lucida Console</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="cursive">Cursive</option>
+      </select>
+      <input type="number" id="fontSize" value="18" min="8" max="96" style="width:54px">
+    </div>
+    <div class="tb-group">
+      <button class="tb-btn" id="btn-emoji" onclick="toggleEmojiPicker()">😀 Emoji</button>
+    </div>
+    <div class="tb-group">
+      <label class="tb-label">Color</label>
+      <input type="color" id="colorPicker" value="#2563eb" title="Color">
+      <label class="tb-label">Size</label>
+      <input type="range" id="brushSize" min="1" max="30" value="3" title="Brush Size">
+      <span id="sizeVal" class="size-val">3</span>
+    </div>
+    <div class="tb-group">
+      <button class="tb-btn" onclick="undo()">↩ Undo</button>
+      <button class="tb-btn" onclick="redo()">↪ Redo</button>
+    </div>
+    <div class="tb-group">
+      <button class="tb-btn danger" onclick="clearCanvas()">🗑 Clear</button>
+      <button class="tb-btn" onclick="saveCanvas()">💾 Save</button>
+    </div>
+    <span id="status"></span>
+  </div>
+
+  <div id="canvas-wrap">
+    <div id="canvas-bg"></div>
+    <canvas id="canvas"></canvas>
+    <input type="text" id="textInput" placeholder="Type here…">
+    <div class="emoji-picker" id="emojiPicker"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
